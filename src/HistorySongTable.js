@@ -49,7 +49,7 @@ const HistorySongTable = () => {
 
 
     const startCountdown = (duration) => {
-        setCountdown(duration); // Set countdown time to 10 seconds (you can adjust as needed)
+        setCountdown(duration);
     };
 
     useEffect(() => {
@@ -84,10 +84,9 @@ const HistorySongTable = () => {
                 <div className="loading-container">
                     <p>Loading, please wait...</p>
                     <div className="loading-spinner">
-                        {/* CSS-based loading spinner */}
                     </div>
                 </div>
-            ) : (
+            ):(
         <div>
             <table className="table table-hover table-center mb-0 datatable">
                 <thead>

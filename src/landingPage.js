@@ -4,7 +4,6 @@ import "font-awesome/css/font-awesome.min.css";
 import {loadStripe} from "@stripe/stripe-js";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-import GetUserLocation from "./userlocation";
 import {Link} from "react-router-dom";
 
 export default class LandingPage extends React.Component {
@@ -255,22 +254,14 @@ export default class LandingPage extends React.Component {
         ],
         customerId: null,
         showSubscriptionForm: false,
-        stripe: null, // Added stripe state
-        showEmbeddedPlayers: false, // State variable to track whether the embedded players should be shown
-        // realLocation: null, // State variable to store the real location information
+        stripe: null,
+        showEmbeddedPlayers: false,
         songs: [],
     };
-
-
     handleShowPlayers = () => {
 
         this.setState({showEmbeddedPlayers: true});
     };
-
-    // Function to update the realLocation state with the received location data
-//    updateRealLocation = (locationData) => {
-//     this.setState({ realLocation: locationData });
-//   };
 
     createPlaylistElement(playlist) {
         return (
@@ -325,14 +316,6 @@ export default class LandingPage extends React.Component {
     redirectToCheckout = async () => {
         try {
             const {customerId} = this.state;
-
-            // if (!customerId) {
-            //   console.error(
-            //     "Customer ID is missing. Please create a customer first."
-            //   );
-            //   return;
-            // }
-
             const sessionResponse = await axios.post(
                 "http://localhost:8080/api/create-subscription",
                 {
@@ -382,7 +365,6 @@ export default class LandingPage extends React.Component {
 
     render() {
         const {data, songs, showEmbeddedPlayers, realLocation} = this.state;
-// 获取第一个歌曲的 holiday 属性
         let firstSongHoliday = "";
         if (songs.length > 0) {
             firstSongHoliday = songs[0].holiday;
@@ -466,34 +448,7 @@ export default class LandingPage extends React.Component {
                             </tbody>
                         </table>
                     </div>
-
-                    {/* Button to refresh user location */}
                     <br/>
-
-                    {/* Conditionally render the GetUserLocation component */}
-                    {/* {showEmbeddedPlayers && (
-          <GetUserLocation
-            setShowEmbeddedPlayers={this.setShowEmbeddedPlayers}
-            updateRealLocation={this.updateRealLocation}
-          />
-        )} */}
-
-                    {/* Show the real location if available */}
-                    {/* {realLocation && (
-          <div
-            style={{
-              color: "#ffffff",
-              textAlign: "center",
-              marginBottom: "2px",
-            }}
-          >
-            <h2 style={{ color: "#ffffff" }}>Real Location:</h2>
-            <p style={{ color: "#ffffff" }}>Latitude: {realLocation.latitude}</p>
-            <p style={{ color: "#ffffff" }}>Longitude: {realLocation.longitude}</p>
-            <p style={{ color: "#ffffff" }}>TimeStamp: {realLocation.timeStamp}</p>
-          </div>
-        )} */}
-
                     <div className="spotify-playlists">
                         <h2>Unique Songs for You</h2>
                         <div className="playlist-group">
@@ -581,8 +536,6 @@ export default class LandingPage extends React.Component {
 
                             </p>
                         </div>
-                        {/* <div className="button">
-              <button type="button" onClick={this.handleSignUpClick1}>Sign up</button> */}
                         <StripeCheckout
                             stripeKey="pk_test_51JtOlaGkAJALrYglTKKou5xAdwP3A1tvxNt9RMnuI1Sjjkxmvh30Ve5QiB5DPO9HF11vrvHmbKwX0QH7El3weEiF005CItRQ7U" // Your Stripe publishable key
                             name="Subscription Form"
@@ -597,11 +550,6 @@ export default class LandingPage extends React.Component {
                         />
                     </div>
                 </div>
-                {/* </div> */}
-
-                {/* Show the subscription form only when showSubscriptionForm is true */}
-                {/* {stripe && showSubscriptionForm && <SubscriptionForm stripe={stripe}/>} */}
-
                 <script
                     src="https://kit.fontawesome.com/cb3a2cb3eb.js"
                     crossOrigin="anonymous"

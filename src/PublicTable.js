@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useRef} from 'react';
-import axios from 'axios';
 
 const PublicTable = () => {
     const [Songs, setSongs] = useState([]);
     const [selectedSong, setSelectedSong] = useState(null);
     const [countdown, setCountdown] = useState(0);
-    const countdownTimer = useRef(null); // Use useRef instead of declaring at the top
+    const countdownTimer = useRef(null);
     const [location, setLocation] = useState(null);
     const username = localStorage.getItem("username");
     const [loading, setLoading]=useState(true);
@@ -58,10 +57,9 @@ const PublicTable = () => {
                 <div className="loading-container">
                     <p>Loading, please wait...</p>
                     <div className="loading-spinner">
-                        {/* CSS-based loading spinner */}
                     </div>
                 </div>
-            ) : (
+            ):(
         <div>
             <table className="table table-hover table-center mb-0 datatable">
                 <thead>

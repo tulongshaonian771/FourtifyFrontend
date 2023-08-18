@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
-import "./App.css"; // Import your custom CSS file
+import "./App.css";
 
 export default function UnsuccessfulPayment() {
     return (
@@ -11,7 +11,6 @@ export default function UnsuccessfulPayment() {
                 <img
                     src="https://i0.wp.com/kashmirreader.com/wp-content/uploads/2020/07/Payment-Failure-1.png?w=810&ssl=1"
                     alt='defaultImage'
-
                 />
             </div>
             <div className="button-container">

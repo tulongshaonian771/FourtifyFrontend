@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
-import "./App.css"; // Import your custom CSS file
-
+import "./App.css";
 export default function SuccessfulPayment() {
     return (
         <React.Fragment>

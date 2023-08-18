@@ -1,19 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './assets/css/style.css';
-// Import Google Fonts
-import { Helmet } from 'react-helmet';
-// Import Bootstrap CSS
 import './assets/plugins/bootstrap/css/bootstrap.min.css';
-// Import Fontawesome CSS
 import './assets/plugins/fontawesome/css/fontawesome.min.css';
 import './assets/plugins/fontawesome/css/all.min.css';
-// Import Datatables CSS
 import './assets/plugins/datatables/datatables.min.css';
-// Import Main CSS
 import './assets/css/style.css';
-import $ from 'jquery';
-import Popper from 'popper.js';
-import logo from './assets/img/Spotify-Logo-PNG3.png'
+import logo from './assets/img/Fourtify2.png'
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -110,7 +102,6 @@ export default function Login() {
                 </div>
             </div>
         </div>
-        {/* /Main Wrapper */}
     </>
 );
 

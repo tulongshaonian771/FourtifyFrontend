@@ -1,4 +1,4 @@
-import logo from "./assets/img/Spotify-Logo-PNG3.png"
+import logo from "./assets/img/Fourtify1.png"
 import role from "./assets/img/paimeng.png"
 import {useState} from "react";
 import { Link } from 'react-router-dom';
@@ -8,9 +8,6 @@ export default function Headbar() {
     const handleLogout = () => {
         localStorage.removeItem('username');
         localStorage.removeItem('password');
-
-        // sessionStorage.removeItem('username');
-        // sessionStorage.removeItem('password');
     };
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);}
@@ -42,7 +39,7 @@ export default function Headbar() {
             <span className="user-img">
               <img
                   className="rounded-circle"
-                  src={role} // Replace 'role' with the appropriate image URL
+                  src={role}
                   width={31}
                   alt="Ryan Taylor"
               />
@@ -55,7 +52,7 @@ export default function Headbar() {
                             <div className="user-header">
                                 <div className="avatar avatar-sm">
                                     <img
-                                        src={role} // Replace 'role' with the appropriate image URL
+                                        src={role}
                                         alt="User Image"
                                         className="avatar-img rounded-circle"
                                     />

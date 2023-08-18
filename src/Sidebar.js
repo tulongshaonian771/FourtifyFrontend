@@ -1,10 +1,7 @@
 import {Link} from "react-router-dom";
-
 export default function sidebar() {
     const storedUsername = localStorage.getItem('username');
     const storedPassword = localStorage.getItem('password');
-
-    // 根据 username 和 password 是否存在来判断是否渲染按钮
     const shouldRenderButtons = storedUsername && storedPassword;
     return (
         <>

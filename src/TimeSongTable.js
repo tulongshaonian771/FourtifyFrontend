@@ -5,13 +5,12 @@ const TimeSongTable = () => {
     const [Songs, setSongs] = useState([]);
     const [selectedSong, setSelectedSong] = useState(null);
     const [countdown, setCountdown] = useState(0);
-    const countdownTimer = useRef(null); // Use useRef instead of declaring at the top
+    const countdownTimer = useRef(null);
     const [location, setLocation] = useState(null);
     const username = localStorage.getItem("username");
     const [loading, setLoading]=useState(true);
 
     useEffect(() => {
-        // 获取地理位置并发送到后端
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 position => {
@@ -19,8 +18,6 @@ const TimeSongTable = () => {
                     const longitude = position.coords.longitude;
 
                     setLocation({ latitude, longitude });
-
-                    // 发送位置信息到后端
                     fetch('http://localhost:8080/time', {
                         method: 'POST',
                         headers: {
@@ -30,7 +27,6 @@ const TimeSongTable = () => {
                     })
                         .then(response => response.json())
                         .then(data => {
-                            // 处理从后端获取的歌单数据
                             setSongs(data);
                             setLoading(false);
                         })
@@ -50,7 +46,7 @@ const TimeSongTable = () => {
 
 
     const startCountdown = (duration) => {
-        setCountdown(duration); // Set countdown time to 10 seconds (you can adjust as needed)
+        setCountdown(duration);
     };
 
     useEffect(() => {
@@ -85,10 +81,9 @@ const TimeSongTable = () => {
                 <div className="loading-container">
                     <p>Loading, please wait...</p>
                     <div className="loading-spinner">
-                        {/* CSS-based loading spinner */}
                     </div>
                 </div>
-            ) : (
+            ):(
         <div>
             <table className="table table-hover table-center mb-0 datatable">
                 <thead>

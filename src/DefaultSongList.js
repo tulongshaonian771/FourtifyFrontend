@@ -2,9 +2,7 @@ import React from "react";
 import "./landingpage.css";
 import "font-awesome/css/font-awesome.min.css";
 import { loadStripe } from "@stripe/stripe-js";
-import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
-import GetUserLocation from "./userlocation";
 import {Link} from "react-router-dom";
 
 
@@ -256,9 +254,8 @@ export default class DefaultSongList extends React.Component {
         ],
         customerId: null,
         showSubscriptionForm: false,
-        stripe: null, // Added stripe state
-        showEmbeddedPlayers: false, // State variable to track whether the embedded players should be shown
-        // realLocation: null, // State variable to store the real location information
+        stripe: null,
+        showEmbeddedPlayers: false,
     };
 
     async componentDidMount() {
@@ -276,12 +273,6 @@ export default class DefaultSongList extends React.Component {
 
         this.setState({ showEmbeddedPlayers: true });
     };
-
-    // Function to update the realLocation state with the received location data
-//    updateRealLocation = (locationData) => {
-//     this.setState({ realLocation: locationData });
-//   };
-
     createPlaylistElement(playlist) {
         return (
             <div className="spotify-playlist-item">
@@ -324,7 +315,6 @@ export default class DefaultSongList extends React.Component {
             const customerId = customerResponse.data.customerId;
             console.log(customerId);
             this.setState({ customerId }, () => {
-                // Callback function, called after state is updated
                 this.redirectToCheckout();
             });
         } catch (error) {
@@ -456,11 +446,6 @@ export default class DefaultSongList extends React.Component {
                         <br/>
                     </div>
                 </div>
-                {/* </div> */}
-
-                {/* Show the subscription form only when showSubscriptionForm is true */}
-                {/* {stripe && showSubscriptionForm && <SubscriptionForm stripe={stripe}/>} */}
-
                 <script
                     src="https://kit.fontawesome.com/cb3a2cb3eb.js"
                     crossOrigin="anonymous"

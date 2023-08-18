@@ -1,6 +1,5 @@
 import Headbar from "./Headbar";
 import Sidebar from "./Sidebar";
-import LandingPage from "./landingPage";
 import React, {useEffect} from "react";
 import DefaultSongList from "./DefaultSongList";
 import {useNavigate} from "react-router-dom";
@@ -28,27 +27,11 @@ function DefaultPage() {
 
                 <div className="page-wrapper">
                     <div className="content container-fluid">
-                        <div className="page-header">
-                            {/* Page header content */}
-                        </div>
-
                         <div className="card">
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-md-12">
                                         <DefaultSongList/>
-                                    </div>
-                                </div>
-
-                                <div className="row mt-2">
-                                    <div className="col-md-12">
-                                        {/* Skills content */}
-                                    </div>
-                                </div>
-
-                                <div className="row mt-2">
-                                    <div className="col-md-12">
-                                        {/* Settings content */}
                                     </div>
                                 </div>
                             </div>
