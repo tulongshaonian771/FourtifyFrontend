@@ -10,6 +10,9 @@ import TimeSongListPage from "./TimeSongListPage";
 import PublicPage from "./PublicPage";
 import AfterLoginSongTable from "./AfterLoginSongTable";
 import AfterLoginSongList from "./AfterLoginSongList";
+import SuccessfulPayment from "./SuccessPayment";
+import UnsuccessfulPayment from "./CancelPurchase";
+import HistoryPage from "./HistoryPage";
 
 const App = () => {
     const username = localStorage.getItem('username');
@@ -26,6 +29,9 @@ const App = () => {
                 <Route path="/timelist" element={<TimeSongListPage />} />
                 <Route path="/publiclist" element={<PublicPage />} />
                 <Route path="/after" element={<AfterLoginSongList />} />
+                <Route path="/successPay" element={<SuccessfulPayment/>} />
+                <Route path="/cancelPay" element={<UnsuccessfulPayment/>}/>
+                <Route path="/history" element={<HistoryPage />}/>
             </Routes>
         </Router>
     );

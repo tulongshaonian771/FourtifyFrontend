@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+/* SuccessfulPayment.css */
+
+.logo2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:white;
+}
+
+.logo2-image {
+  width: 80px; /* Adjust the width */
+  height: auto;
+  margin-left: 10px; /* Add margin to separate the image from the text */
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  margin-right: 100px;
+}
+
+/* CSS styling for loading spinner */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg);}
+}
