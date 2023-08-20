@@ -71,7 +71,7 @@ const TimeSongTable = () => {
         if (selectedSong === song.uri) {
         } else {
             setSelectedSong(song.uri);
-            startCountdown(5000);
+            startCountdown(song.duration);
         }
     };
 
